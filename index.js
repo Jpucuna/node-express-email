@@ -15,19 +15,23 @@ const transporter = nodemailer.createTransport({
     secure: true,
     auth: {
       // TODO: replace `user` and `pass` values from <https://forwardemail.net>
-      user: 'maximoportunista14@gmail.com',
-      pass: 'egcllvbxdgvcasji'
+      user: 'equasystems.info@gmail.com',
+      pass: 'guockfybmuokcdei'
     }
 });
+
+app.get('/',(req, res)=>{
+    res.send('hello world')
+})
 
 app.post('/enviar-correo', (req, res)=>{
     const {email} = req.body; 
     console.log(req.body);
     const mailOptions = {
-        from: 'tucorreo@gmail.com',
-        to: 'maximoportunista14@gmail.com',
+        from: 'pruebitapah@gmail.com',
+        to: 'equasystems.info@gmail.com',
         subject: 'Asunto del correo',
-        text: 'Contenido del correo electrónico',
+        text: 'Contenido de prueba',
       };
     
       transporter.sendMail(mailOptions, (error, info) => {
