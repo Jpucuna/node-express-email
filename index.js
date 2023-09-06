@@ -8,6 +8,9 @@ const PORT = process.env.PORT || 3977;
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
+const emailContainer = process.env.EMAIL || 'maximoportunista14@gmail.com';
+const pass = process.env.PASS || 'dblhkeyumlmjatdm';
+
 
 const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -15,8 +18,8 @@ const transporter = nodemailer.createTransport({
     secure: true,
     auth: {
       // TODO: replace `user` and `pass` values from <https://forwardemail.net>
-      user: 'equasystems.info@gmail.com',
-      pass: 'guockfybmuokcdei'
+      user: emailContainer,
+      pass: pass
     }
 });
 
@@ -29,7 +32,7 @@ app.post('/enviar-correo', (req, res)=>{
     console.log(req.body);
     const mailOptions = {
         from: 'pruebitapah@gmail.com',
-        to: 'equasystems.info@gmail.com',
+        to: emailContainer,
         subject: 'Asunto del correo',
         text: 'Contenido de prueba',
       };
