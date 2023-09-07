@@ -6,6 +6,10 @@ const bodyParser = require("body-parser");
 const app = express();
 const PORT = process.env.PORT || 3977;
 app.use(cors());
+app.use(cors({
+  origin: ['https://equasystems.netlify.app', 'https://equasystems.netlify.app/contact-us'],
+  optionsSuccessStatus: 200
+}));
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
