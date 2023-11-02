@@ -13,8 +13,8 @@ app.use(cors({
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
-const emailContainer = process.env.EMAIL || 'maximoportunista14@gmail.com';
-const pass = process.env.PASS || 'dblhkeyumlmjatdm';
+const emailContainer = process.env.EMAIL;
+const pass = process.env.PASS;
 
 
 const transporter = nodemailer.createTransport({
@@ -28,7 +28,7 @@ const transporter = nodemailer.createTransport({
 });
 
 app.get('/',(req, res)=>{
-    res.send('hello world')
+    res.send('Welcome to Email Service')
 })
 
 app.post('/enviar-correo', (req, res)=>{
